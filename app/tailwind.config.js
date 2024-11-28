@@ -15,6 +15,10 @@ export default {
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
         accent: 'rgb(var(--color-accent) / <alpha-value>)',
       },
+      fontFamily: {
+        'recoleta': ['Recoleta', 'serif'],
+        'roboto': ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],
