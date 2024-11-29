@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/seo": "^2.0.2",
     "@vueuse/core": "^12.0.0",
     "nuxt": "^3.14.1592",
     "swiper": "^11.1.15",

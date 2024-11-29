@@ -92,7 +92,7 @@
           </div>
 
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex space-x-8">
+          <div class="hidden lg:flex items-center space-x-8">
             <NuxtLink
               v-for="(link, index) in navigationLinks"
               :key="index"
@@ -102,10 +102,16 @@
             >
               {{ link.name }}
             </NuxtLink>
+            <NuxtLink
+              to="/join-now"
+              class="bg-primary !text-white px-6 py-2 rounded-full uppercase text-sm font-roboto font-medium hover:bg-primary/90 transition-colors duration-200"
+            >
+              Join Now
+            </NuxtLink>
           </div>
 
           <!-- Mobile menu button -->
-          <div class="md:hidden">
+          <div class="lg:hidden">
             <button
               @click="isOpen = !isOpen"
               class="inline-flex items-center justify-center p-2 rounded-md text-secondary hover:text-primary hover:bg-accent/80 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
@@ -137,7 +143,7 @@
           leave-from-class="transform scale-100 opacity-100"
           leave-to-class="transform scale-95 opacity-0"
         >
-          <div v-if="isOpen" class="md:hidden">
+          <div v-if="isOpen" class="lg:hidden">
             <div class="pt-2 pb-3 space-y-1 sm:px-3">
               <NuxtLink
                 v-for="(link, index) in navigationLinks"
@@ -148,6 +154,13 @@
                 @click="isOpen = false"
               >
                 {{ link.name }}
+              </NuxtLink>
+              <NuxtLink
+                to="/join-now"
+                class="bg-primary !text-white px-4 py-2 rounded-full text-lg font-roboto font-medium hover:bg-primary/90 transition-colors duration-200 block text-center mt-4"
+                @click="isOpen = false"
+              >
+                Join Now
               </NuxtLink>
             </div>
           </div>
@@ -183,8 +196,7 @@ const navigationLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Services", path: "/services" },
-  { name: "Referral", path: "/referral" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Contact", path: "/contact" },
 ];
 </script>
 
