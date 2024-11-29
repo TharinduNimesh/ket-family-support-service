@@ -22,3 +22,13 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
+
+::selection {
+  background-color: rgb(44, 58, 219, 0.2); /* Primary color with opacity */
+  color: rgb(44, 58, 219); /* Primary color */
+}
+
+::-moz-selection {
+  background-color: rgb(44, 58, 219, 0.2); /* Primary color with opacity */
+  color: rgb(44, 58, 219); /* Primary color */
+}

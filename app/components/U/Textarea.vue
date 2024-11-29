@@ -1,22 +1,30 @@
 <template>
-  <div class="mb-6">
+  <div class="mb-4">
     <label :for="id" class="block text-sm font-medium text-gray-700 mb-1">
       {{ label }}
       <span v-if="required" class="text-red-500">*</span>
     </label>
-    <textarea
-      :id="id"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
-      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 min-h-[120px]"
-      :class="[
-        error ? 'border-red-500' : 'focus:border-primary',
-        'placeholder:text-gray-400'
-      ]"
-      v-bind="$attrs"
-    ></textarea>
-    <p v-if="error" class="mt-1 text-sm text-red-500">{{ error }}</p>
-    <p v-if="hint" class="mt-1 text-sm text-gray-500">{{ hint }}</p>
+    <div class="relative">
+      <textarea
+        :id="id"
+        :value="modelValue"
+        @input="$emit('update:modelValue', $event.target.value)"
+        class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 outline-none resize-y min-h-[120px]"
+        :class="[
+          error ? 'border-red-500 focus:ring-red-500/20 focus:border-red-500' : '',
+          'placeholder:text-gray-400'
+        ]"
+        v-bind="$attrs"
+      ></textarea>
+      <div v-if="error" class="absolute right-3 top-3 text-red-500">
+        <Icon name="heroicons:exclamation-circle" class="w-5 h-5" />
+      </div>
+    </div>
+    <p v-if="error" class="mt-1 text-sm text-red-500 flex items-center gap-1">
+      <Icon name="heroicons:exclamation-triangle" class="w-4 h-4" />
+      {{ error }}
+    </p>
+    <p v-if="hint && !error" class="mt-1 text-sm text-gray-500">{{ hint }}</p>
   </div>
 </template>
 

@@ -76,9 +76,9 @@
     </div>
 
     <!-- Navigation Bar Start -->
-    <div class="w-full bg-white" :class="{ 'mt-0': !showTopBar }">
+    <div class="w-full bg-white shadow-md transition-all duration-300" :class="{ 'mt-0': !showTopBar }">
       <nav
-        class="container mx-auto px-4 sm:px-6 lg:px-8 bg-white shadow-md transition-all duration-300"
+        class="container mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300"
       >
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->

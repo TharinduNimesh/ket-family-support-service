@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 class="text-2xl font-recoleta font-bold text-gray-900 mb-6">Participant Details</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <UInput
         id="first-name"
         label="First Name"
@@ -84,8 +84,7 @@ const props = defineProps({
 const genderOptions = [
   { value: 'male', label: 'Male' },
   { value: 'female', label: 'Female' },
-  { value: 'non-binary', label: 'Non-Binary' },
-  { value: 'other', label: 'Other' }
+  { value: 'not-specified', label: 'Prefer not to say' },
 ]
 
 const yesNoOptions = [
