@@ -103,9 +103,17 @@
                   <button
                     type="submit"
                     v-else
-                    class="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-200"
+                    :disabled="isSubmitting"
+                    class="px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
                   >
-                    Submit
+                    <span v-if="isSubmitting" class="flex items-center gap-2">
+                      <Icon 
+                        name="heroicons:arrow-path" 
+                        class="w-5 h-5 animate-spin"
+                      />
+                      Submitting...
+                    </span>
+                    <span v-else>Submit</span>
                   </button>
                 </div>
               </form>
@@ -122,6 +130,8 @@ import { ref, reactive } from "vue";
 
 const currentStep = ref(1);
 const totalSteps = 6;
+const isSubmitting = ref(false);
+
 const stepTitles = [
   "Getting Started",
   "Participant Details",
@@ -314,17 +324,22 @@ const handleSubmit = async () => {
   }
 
   try {
+    isSubmitting.value = true;
     // Add form submission logic here
     const response = await $fetch('/api/submit-form', {
       method: 'POST',
       body: formData
     });
     
-    // Handle successful submission
-    navigateTo('/submission-success');
+    if (response.success) {
+      // Show success message and redirect
+      navigateTo('/submission-success');
+    }
   } catch (error) {
-    console.error("Error submitting form:", error);
-    // Handle submission error
+    console.error('Error submitting form:', error);
+    // Handle error appropriately
+  } finally {
+    isSubmitting.value = false;
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-screen bg-accent">
+  <div class="w-full min-h-screen bg-accent overflow-x-hidden">
     <Header />
     <main class="w-full mt-20">
       <slot />
