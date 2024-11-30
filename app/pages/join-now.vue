@@ -126,8 +126,6 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-
 const currentStep = ref(1);
 const totalSteps = 6;
 const isSubmitting = ref(false);
@@ -141,7 +139,7 @@ const stepTitles = [
   "NDIS Information",
 ];
 
-const formData = reactive({
+const formData = ref({
   getStarted: {
     completingFor: "",
   },
@@ -180,7 +178,7 @@ const formData = reactive({
   },
 });
 
-const errors = reactive({
+const errors = ref({
   getStarted: {},
   participantDetails: {},
   culturalDetails: {},
