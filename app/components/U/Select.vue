@@ -4,7 +4,7 @@
       {{ label }}
       <span v-if="required" class="text-red-500">*</span>
     </label>
-    <div class="relative" v-click-outside="closeDropdown">
+    <div class="relative">
       <button
         type="button"
         :id="id"
