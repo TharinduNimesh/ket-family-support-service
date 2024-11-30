@@ -170,15 +170,125 @@ const formData = reactive({
   },
 });
 
-const errors = reactive({});
+const errors = reactive({
+  getStarted: {},
+  participantDetails: {},
+  culturalDetails: {},
+  serviceRequest: {},
+  bookingDetails: {},
+  ndisInfo: {},
+});
+
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const validatePhone = (phone) => {
+  const phoneRegex = /^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/;
+  return phoneRegex.test(phone);
+};
+
+const validateDate = (date) => {
+  if (!date) return false;
+  const dateObj = new Date(date);
+  return dateObj instanceof Date && !isNaN(dateObj);
+};
 
 const validateStep = (step) => {
-  errors.value = {};
+  // Clear previous errors for the current step
+  const stepKey = Object.keys(formData)[step - 1];
+  errors[stepKey] = {};
+  
+  switch (step) {
+    case 1: // Getting Started
+      if (!formData.getStarted.completingFor) {
+        errors.getStarted.completingFor = "Please select who you are completing this form for";
+        return false;
+      }
+      break;
+
+    case 2: // Participant Details
+      if (!formData.participantDetails.firstName) {
+        errors.participantDetails.firstName = "First name is required";
+      }
+      if (!formData.participantDetails.lastName) {
+        errors.participantDetails.lastName = "Last name is required";
+      }
+      if (!formData.participantDetails.dateOfBirth) {
+        errors.participantDetails.dateOfBirth = "Date of birth is required";
+      } else if (!validateDate(formData.participantDetails.dateOfBirth)) {
+        errors.participantDetails.dateOfBirth = "Please enter a valid date";
+      }
+      if (!formData.participantDetails.gender) {
+        errors.participantDetails.gender = "Please select a gender";
+      }
+      if (!formData.participantDetails.address) {
+        errors.participantDetails.address = "Address is required";
+      }
+      if (!formData.participantDetails.phone) {
+        errors.participantDetails.phone = "Phone number is required";
+      } else if (!validatePhone(formData.participantDetails.phone)) {
+        errors.participantDetails.phone = "Please enter a valid Australian phone number";
+      }
+      if (!formData.participantDetails.email) {
+        errors.participantDetails.email = "Email is required";
+      } else if (!validateEmail(formData.participantDetails.email)) {
+        errors.participantDetails.email = "Please enter a valid email address";
+      }
+      if (formData.participantDetails.hasGuardian === "") {
+        errors.participantDetails.hasGuardian = "Please indicate if you have a guardian";
+      }
+      break;
+
+    case 3: // Cultural Details
+      if (!formData.culturalDetails.countryOfBirth) {
+        errors.culturalDetails.countryOfBirth = "Country of birth is required";
+      }
+      if (formData.culturalDetails.needsInterpreter === "") {
+        errors.culturalDetails.needsInterpreter = "Please indicate if you need an interpreter";
+      }
+      if (formData.culturalDetails.isIndigenous === "") {
+        errors.culturalDetails.isIndigenous = "Please indicate your Indigenous status";
+      }
+      break;
+
+    case 4: // Service Request
+      if (!formData.serviceRequest.primaryService) {
+        errors.serviceRequest.primaryService = "Primary service is required";
+      }
+      if (!formData.serviceRequest.conditions) {
+        errors.serviceRequest.conditions = "Please provide your conditions";
+      }
+      break;
+
+    case 5: // Booking Details
+      if (!formData.bookingDetails.consultationTypes.length) {
+        errors.bookingDetails.consultationTypes = "Please select at least one consultation type";
+      }
+      if (!formData.bookingDetails.contactPerson) {
+        errors.bookingDetails.contactPerson = "Contact person is required";
+      }
+      break;
+
+    case 6: // NDIS Information
+      if (!formData.ndisInfo.planType) {
+        errors.ndisInfo.planType = "NDIS plan type is required";
+      }
+      break;
+  }
+
+  const stepErrors = errors[stepKey];
+  return Object.keys(stepErrors).length === 0;
+};
+
+const validateAllSteps = () => {
   let isValid = true;
-
-  // Add validation logic here based on the current step
-  // Return true if valid, false otherwise
-
+  for (let step = 1; step <= totalSteps; step++) {
+    if (!validateStep(step)) {
+      isValid = false;
+    }
+  }
   return isValid;
 };
 
@@ -193,13 +303,28 @@ const prevStep = () => {
 };
 
 const handleSubmit = async () => {
-  if (validateStep(currentStep.value)) {
-    try {
-      // Add form submission logic here
-      console.log("Form submitted:", formData);
-    } catch (error) {
-      console.error("Error submitting form:", error);
+  if (!validateAllSteps()) {
+    // If there are validation errors in any step, show the first step with errors
+    for (let step = 1; step <= totalSteps; step++) {
+      if (!validateStep(step)) {
+        currentStep.value = step;
+        return;
+      }
     }
+  }
+
+  try {
+    // Add form submission logic here
+    const response = await $fetch('/api/submit-form', {
+      method: 'POST',
+      body: formData
+    });
+    
+    // Handle successful submission
+    navigateTo('/submission-success');
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    // Handle submission error
   }
 };
 </script>

@@ -99,4 +99,14 @@ onUnmounted(() => {
 .fade-leave-to {
   opacity: 0;
 }
+
+::selection {
+  background-color: rgba(255, 255, 255, 0.3); /* Light background with opacity */
+  color: #ffffff; /* White text */
+}
+
+::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.3); /* Light background with opacity */
+  color: #ffffff; /* White text */
+}
 </style>

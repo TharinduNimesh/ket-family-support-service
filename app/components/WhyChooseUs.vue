@@ -10,7 +10,7 @@
             class="rounded-2xl shadow-xl w-full h-[600px] object-cover"
           />
           <div
-            class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-lg hidden lg:block"
+            class="experience-card absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-lg hidden lg:block"
           >
             <div class="text-center">
               <div class="text-4xl font-bold mb-2">5+</div>
@@ -130,6 +130,14 @@
   </section>
 </template>
 
-<script setup>
-// Icons are imported automatically by @nuxt/icon module
-</script>
+<style scoped>
+.experience-card *::selection {
+  background-color: rgba(255, 255, 255, 0.3); /* Light background with opacity */
+  color: #ffffff; /* White text */
+}
+
+.experience-card *::-moz-selection {
+  background-color: rgba(255, 255, 255, 0.3); /* Light background with opacity */
+  color: #ffffff; /* White text */
+}
+</style>
