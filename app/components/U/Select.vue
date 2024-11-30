@@ -4,7 +4,7 @@
       {{ label }}
       <span v-if="required" class="text-red-500">*</span>
     </label>
-    <div class="relative">
+    <div class="relative" ref="dropdown">
       <button
         type="button"
         :id="id"
@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 
 const props = defineProps({
   id: {
@@ -109,10 +109,15 @@ const props = defineProps({
     type: String,
     default: ''
   }
-})
+});
 
+const dropdown = ref(null);
 const emit = defineEmits(['update:modelValue'])
 const isOpen = ref(false)
+
+onClickOutside(dropdown, () => {
+  isOpen.value = false
+})
 
 const selectedLabel = computed(() => {
   const option = props.options.find(opt => opt.value === props.modelValue)
