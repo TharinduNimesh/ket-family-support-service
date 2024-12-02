@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-white rounded-2xl shadow-xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300 group">
-    <div class="flex flex-col items-center text-center">
+  <div class="bg-white rounded-2xl shadow-xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300 group h-[380px] flex flex-col">
+    <div class="flex flex-col items-center text-center flex-grow">
       <!-- Icon Container -->
       <div 
         class="w-24 h-24 mb-8 rounded-2xl p-5 flex items-center justify-center transition-all duration-300"
@@ -25,11 +25,13 @@
       </h3>
 
       <!-- Description -->
-      <p class="text-gray-600 leading-relaxed mb-6">
+      <p class="text-gray-600 leading-relaxed">
         {{ description }}
       </p>
+    </div>
 
-      <!-- Learn More Link -->
+    <!-- Learn More Link -->
+    <div class="mx-auto pt-6">
       <NuxtLink 
         :to="link"
         class="inline-flex items-center text-primary font-medium group-hover:text-primary/80 transition-colors duration-300"
