@@ -139,7 +139,7 @@ const stepTitles = [
   "NDIS Information",
 ];
 
-const formData = ref({
+const formData = reactive({
   getStarted: {
     completingFor: "",
   },
@@ -178,7 +178,7 @@ const formData = ref({
   },
 });
 
-const errors = ref({
+const errors = reactive({
   getStarted: {},
   participantDetails: {},
   culturalDetails: {},
