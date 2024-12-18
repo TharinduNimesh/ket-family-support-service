@@ -17,6 +17,7 @@ export default {
       },
       fontFamily: {
         'recoleta': ['Recoleta', 'serif'],
+        'recoleta_black': ['Recoleta_Black', 'serif'],
         'roboto': ['Roboto', 'sans-serif'],
       },
     },

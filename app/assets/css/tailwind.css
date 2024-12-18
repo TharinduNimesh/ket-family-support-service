@@ -5,8 +5,8 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: 44 58 219;
-  --color-secondary: 61 113 209;
+  --color-primary: 25 70 105;
+  --color-secondary: 57 89 130;
   --color-accent: 245 245 255;
 }
 
@@ -18,17 +18,25 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Recoleta_Black";
+  src: url("/webfonts/Recoleta-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
 ::selection {
-  background-color: rgb(44, 58, 219, 0.2); /* Primary color with opacity */
-  color: rgb(44, 58, 219); /* Primary color */
+  background-color: rgb(var(--color-primary) / 0.2); /* Primary color with opacity */
+  color: rgb(var(--color-primary)); /* Primary color */
 }
 
 ::-moz-selection {
-  background-color: rgb(44, 58, 219, 0.2); /* Primary color with opacity */
-  color: rgb(44, 58, 219); /* Primary color */
+  background-color: rgb(var(--color-primary) / 0.2); /* Primary color with opacity */
+  color: rgb(var(--color-primary)); /* Primary color */
 }

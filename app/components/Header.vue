@@ -66,7 +66,7 @@
               rel="noopener noreferrer"
             >
               <Icon
-                name="fa6-brands-square-x-twitter"
+                name="fa6-brands-linkedin"
                 class="text-lg sm:text-xl"
               />
             </a>

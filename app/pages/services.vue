@@ -64,8 +64,8 @@ const categories = [
     name: "Personal Support",
     services: [
       {
-        title: "High Intensity Daily Personal Activities",
-        description: "Specialized support for complex personal care needs and daily activities.",
+        title: "Daily Personal Activities",
+        description: "Specialized support for complex personal care needs and high intensity daily activities.",
         imagePath: "/images/services/daily-personal-activity.png"
       },
       {
