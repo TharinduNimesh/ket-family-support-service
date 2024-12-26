@@ -24,9 +24,12 @@
               :key="currentSlide"
               class="text-center"
             >
-              <p class="text-white text-2xl md:text-3xl leading-relaxed font-light mb-8 px-6">
+              <p class="text-white text-2xl md:text-3xl leading-relaxed font-light mb-6 px-6">
                 "{{ testimonials[currentSlide].text }}"
               </p>
+              <div class="text-white/80 font-medium text-lg">
+                {{ testimonials[currentSlide].name }}
+              </div>
             </div>
           </Transition>
 
@@ -54,18 +57,22 @@ import { useIntervalFn } from '@vueuse/core'
 const testimonials = [
   {
     id: 1,
+    name: "Sarah Thompson",
     text: "The support I've received has been life-changing. The team truly understands my needs and has helped me achieve independence in ways I never thought possible."
   },
   {
     id: 2,
+    name: "Michael Chen",
     text: "I'm amazed by how personalized the service is. They take the time to understand my goals and create a plan that works perfectly for my situation."
   },
   {
     id: 3,
+    name: "Emma Williams",
     text: "The dedication and professionalism of the support team is outstanding. They're always there when I need them, making my NDIS journey smooth and stress-free."
   },
   {
     id: 4,
+    name: "David Anderson",
     text: "From day one, they've made the entire NDIS process simple to understand. Their guidance has been invaluable in helping me make the most of my plan."
   }
 ]

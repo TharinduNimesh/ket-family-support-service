@@ -13,7 +13,7 @@
             class="experience-card absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-xl shadow-lg hidden lg:block"
           >
             <div class="text-center">
-              <div class="text-4xl font-bold mb-2">5+</div>
+              <div class="text-4xl font-bold mb-2">{{ (new Date().getFullYear() - 2019).toFixed(0) }}+</div>
               <div class="text-sm">Years of Experience</div>
             </div>
           </div>
@@ -41,8 +41,8 @@
                 </div>
               </div>
               <div>
-                <div class="font-bold text-2xl text-gray-900 mb-1">500+</div>
-                <div class="text-gray-600">Participants Supported</div>
+                <div class="font-bold text-2xl text-gray-900 mb-1">250+</div>
+                <div class="text-gray-600">Participants Served</div>
               </div>
             </div>
 
@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div>
-                <div class="font-bold text-2xl text-gray-900 mb-1">98%</div>
+                <div class="font-bold text-2xl text-gray-900 mb-1">90%</div>
                 <div class="text-gray-600">Success Rate</div>
               </div>
             </div>
