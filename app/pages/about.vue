@@ -146,124 +146,18 @@
               </h2>
             </div>
 
-            <div
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
-            >
-              <!-- Caring -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:heart"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Caring</h3>
-                <p class="text-sm text-gray-600">
-                  We put our patients at the Center of everything we do
-                </p>
-              </div>
+            <div class="w-full">
+              <img 
+                src="/images/charts/our-core-values-mobile.avif"
+                alt="Our Values"
+                class="w-full md:hidden h-auto object-cover"
+              />
 
-              <!-- Trustworthy -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:shield-check"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Trustworthy
-                </h3>
-                <p class="text-sm text-gray-600">We are true to our promise</p>
-              </div>
-
-              <!-- Innovative -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:light-bulb"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Innovative</h3>
-                <p class="text-sm text-gray-600">
-                  We continuously invent new methodologies
-                </p>
-              </div>
-
-              <!-- Responsive -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:chat-bubble-left-right"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Responsive</h3>
-                <p class="text-sm text-gray-600">
-                  We are ready to listen and act promptly
-                </p>
-              </div>
-
-              <!-- Teamwork -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:user-group"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Teamwork</h3>
-                <p class="text-sm text-gray-600">
-                  One team with a common purpose
-                </p>
-              </div>
-
-              <!-- Empowerment -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:sparkles"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Empowerment
-                </h3>
-                <p class="text-sm text-gray-600">
-                  Supporting families to achieve their full potential
-                </p>
-              </div>
-
-              <!-- Excellence -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:star"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Excellence</h3>
-                <p class="text-sm text-gray-600">
-                  Committed to topnotch care support
-                </p>
-              </div>
-
-              <!-- Results Driven -->
-              <div class="value-card group">
-                <div class="icon-wrapper">
-                  <Icon
-                    name="heroicons:arrow-trending-up"
-                    class="w-8 h-8 text-primary group-hover:scale-110 transition-transform"
-                  />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">
-                  Results Driven
-                </h3>
-                <p class="text-sm text-gray-600">
-                  Enhancing patient's values and confidence
-                </p>
-              </div>
+              <img 
+                src="/images/charts/our-core-values-desktop.avif"
+                alt="Our Values"
+                class="w-full hidden md:block h-auto object-cover"
+              />
             </div>
           </div>
         </div>
